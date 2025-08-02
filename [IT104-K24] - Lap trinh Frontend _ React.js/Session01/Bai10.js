@@ -1,19 +1,17 @@
-function groupStrings(arr) {
-  const map = new Map();
+function tronMangSapXep(m1, m2) {
+  let i = 0, j = 0, kq = [];
 
-  arr.forEach(str => {
-    const key = str.split('').sort().join('');
-    if (!map.has(key)) {
-      map.set(key, []);
+  while (i < m1.length && j < m2.length) {
+    if (m1[i] < m2[j]) {
+      kq.push(m1[i++]);
+    } else {
+      kq.push(m2[j++]);
     }
-    map.get(key).push(str);
-  });
+  }
 
-  return Array.from(map.values());
+  return kq.concat(m1.slice(i)).concat(m2.slice(j));
 }
 
-// Ví dụ:
-const input = ["eat", "tea", "tan", "ate", "nat", "bat"];
-const output = groupStrings(input);
-console.log(output);
-// Kết quả: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+const ketQua = tronMangSapXep([1, 2, 3, 5, 9], [4, 6, 7, 8]);
+console.log(ketQua);
+// Ket qua: [1, 2, 3, 4, 5, 6, 7, 8, 9]
