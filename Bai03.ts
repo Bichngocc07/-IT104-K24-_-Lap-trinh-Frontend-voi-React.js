@@ -1,41 +1,8 @@
 
-abstract class Animal {
-    public name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-
-    
-    abstract makeNoise(): void;
-
-    
-    printName(): void {
-        console.log(`Tên: ${this.name}`);
-    }
+function reverseArray<T>(arr: T[]): T[] {
+    return arr.reverse();
 }
 
 
-class Cat extends Animal {
-    makeNoise(): void {
-        console.log("meo meo");
-    }
-}
-
-
-class Dog extends Animal {
-    makeNoise(): void {
-        console.log("gâu gâu");
-    }
-}
-
-
-const myCat = new Cat("Miu Miu");
-const myDog = new Dog("Cún Con");
-
-
-myCat.printName(); 
-myCat.makeNoise();
-
-myDog.printName();
-myDog.makeNoise(); 
-
+console.log(reverseArray([1, 2, 3]));     
+console.log(reverseArray(['a', 'b', 'c']));

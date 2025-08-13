@@ -1,47 +1,15 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Employee = /** @class */ (function () {
-    function Employee(name, company, phone) {
-        this.name = name;
-        this.company = company;
-        this.phone = phone;
-    }
-    Employee.prototype.printInfo = function () {
-        console.log("T\u00EAn: ".concat(this.name, ", Cty: ").concat(this.company, ", S\u0110T: ").concat(this.phone));
-    };
-    // Getter cho phone vì private không truy cập trực tiếp ở lớp con
-    Employee.prototype.getPhone = function () {
-        return this.phone;
-    };
-    return Employee;
-}());
-var Manager = /** @class */ (function (_super) {
-    __extends(Manager, _super);
-    function Manager(name, company, phone, teamSize) {
-        var _this = _super.call(this, name, company, phone) || this;
-        _this.teamSize = teamSize;
-        return _this;
-    }
-    Manager.prototype.printInfo = function () {
-        console.log("T\u00EAn: ".concat(this.name, ", Cty: ").concat(this.company, ", S\u0110T: ").concat(this.getPhone(), ", Team size: ").concat(this.teamSize));
-    };
-    return Manager;
-}(Employee));
-// Test
-var emp = new Employee("Nguyễn Văn A", "CMC", "098765436");
-emp.printInfo();
-var manager = new Manager("Nguyễn Văn B", "CMC", "098765436", 6);
-manager.printInfo();
+// Khai báo enum weekDays
+var weekDays;
+(function (weekDays) {
+    weekDays["Monday"] = "Th\u1EE9 Hai";
+    weekDays["Tuesday"] = "Th\u1EE9 Ba";
+    weekDays["Wednesday"] = "Th\u1EE9 T\u01B0";
+    weekDays["Thursday"] = "Th\u1EE9 N\u0103m";
+    weekDays["Friday"] = "Th\u1EE9 S\u00E1u";
+    weekDays["Saturday"] = "Th\u1EE9 B\u1EA3y";
+    weekDays["Sunday"] = "Ch\u1EE7 Nh\u1EADt";
+})(weekDays || (weekDays = {}));
+// In ra tất cả các ngày trong tuần
+for (var day in weekDays) {
+    console.log(weekDays[day]);
+}
