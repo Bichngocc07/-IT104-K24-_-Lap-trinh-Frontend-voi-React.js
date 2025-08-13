@@ -4,9 +4,10 @@ function mergeObjects<T, U>(obj1: T, obj2: U): T & U {
 }
 
 
-const person = { name: "Ngọc", age: 20 };
+const person = { name: "Ngọc", age: 19 };
 const job = { title: "Developer", salary: 1500 };
 
 const merged = mergeObjects(person, job);
 console.log(merged);
+
 
